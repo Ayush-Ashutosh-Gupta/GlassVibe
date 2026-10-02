@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 1. Liquid Battery Widget -->
+        <receiver
+            android:name=".widgets.GlassLiquidBatteryWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Liquid Battery">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_liquid_battery_widget_info" />
+        </receiver>
+
+        <!-- 2. Clock Widget -->
+        <receiver
+            android:name=".widgets.GlassClockWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Frost Chrono">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_clock_widget_info" />
+        </receiver>
+
+        <!-- 3. Screen Time Widget -->
+        <receiver
+            android:name=".widgets.GlassScreenTimeWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Screen Usage">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_screentime_widget_info" />
+        </receiver>
+
+        <!-- 4. System Stats Widget -->
+        <receiver
+            android:name=".widgets.GlassSystemStatsWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe System Monitor">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_system_widget_info" />
+        </receiver>
+
+        <!-- 5. Calendar Widget -->
+        <receiver
+            android:name=".widgets.GlassCalendarWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Calendar Agenda">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_calendar_widget_info" />
+        </receiver>
+
+        <!-- 6. Quick Launcher Widget -->
+        <receiver
+            android:name=".widgets.GlassQuickLauncherWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Quick Launcher">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_quick_launcher_widget_info" />
+        </receiver>
+
+        <!-- 7. Weather Widget -->
+        <receiver
+            android:name=".widgets.GlassWeatherWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Weather Glass">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_weather_widget_info" />
+        </receiver>
+
+        <!-- 8. Music Widget -->
+        <receiver
+            android:name=".widgets.GlassMusicWidgetProvider"
+            android:exported="true"
+            android:label="GlassVibe Now Playing">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/glass_music_widget_info" />
+        </receiver>
+    </application>
+
+</manifest>
